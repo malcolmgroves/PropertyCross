@@ -11,7 +11,7 @@ unit unitImageCache;
 
 interface
 
-uses System.Generics.Collections, System.Classes, FMX.Objects, FMX.Types, FMX.Graphics;
+uses System.Generics.Collections, System.Classes, FMX.Objects, FMX.Types;
 
 type
   TImageCache<T> = class

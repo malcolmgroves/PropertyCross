@@ -11,7 +11,7 @@ unit unitNestoriaImagesServices;
 
 interface
 
-uses System.Classes, FMX.Objects, FMX.Types, FMX.Forms, FMX.Graphics;
+uses System.Classes, FMX.Objects, FMX.Types, FMX.Forms;
 
 type
   TNestoriaImageServices = class

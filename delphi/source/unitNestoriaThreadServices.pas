@@ -140,8 +140,7 @@ begin
       if Assigned(TThread(Sender).OnTerminate) then
         LList.Add(TThread(Sender));
     finally
-      //GThreadLists.FTerminatedThreads.LockList;
-      GThreadLists.FTerminatedThreads.UnLockList;
+      GThreadLists.FTerminatedThreads.LockList;
     end;
   end;
 end;

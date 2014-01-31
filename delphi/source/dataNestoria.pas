@@ -99,7 +99,7 @@ implementation
 {$R *.dfm}
 
 uses unitNestoriaDBServices, unitNestoriaHTTPServices, unitNestoriaJSONServices,
-  unitNestoriaThreadServices, FMX.Forms, System.IOUtils;
+  unitNestoriaThreadServices, FMX.Forms;
 
 constructor TdtmdlNestoria.Create(AOwner: TComponent);
 begin
@@ -117,8 +117,13 @@ end;
 
 procedure TdtmdlNestoria.DataModuleCreate(Sender: TObject);
 begin
-  cdsSearches.FileName := TPath.GetDocumentsPath + PathDelim + 'Searchs.xml';
-  cdsFavourates.FileName := TPath.GetDocumentsPath  + PathDelim + 'Favs.xml';
+  {$IFDEF IOS}
+  cdsSearches.FileName := GetHomePath + PathDelim + 'Documents' + PathDelim + 'Searchs.xml';
+  cdsFavourates.FileName := GetHomePath + PathDelim + 'Documents' + PathDelim + 'Favs.xml';
+  {$ELSE}
+  cdsSearches.FileName := 'Searchs.xml';
+  cdsFavourates.FileName := 'Favs.xml';
+  {$ENDIF}
 
   // Setup Search Results
   if FileExists(cdsSearches.FileName) then begin
